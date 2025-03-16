@@ -19,8 +19,8 @@ Este projeto implementa uma aplicação de Amigo Secreto com um backend em Java 
 ## Tecnologias Utilizadas
 
 ### Backend
-- Java 17
-- Spring Boot 3.2.4
+- Java
+- Spring Boot 
 - Maven
 
 ### Frontend
