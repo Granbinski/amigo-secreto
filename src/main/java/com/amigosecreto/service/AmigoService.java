@@ -9,35 +9,32 @@ import java.util.Random;
 
 @Service
 public class AmigoService {
-  
-  private final List<Amigo> amigos = new ArrayList<>();
 
-  public List<Amigo> listarTodos(){
-    return amigos;
-  }
+    private final List<Amigo> amigos = new ArrayList<>();
 
-  public Amigo adicionar (Amigo amigo){
-    if(amigo.getNome() == null || amigo.getNome().trim().isEmpty()){
-      throw new IllegalStateException("O nome do amigo não pode estar vazio");
+    public List<Amigo> listarTodos() {
+        return amigos;
     }
 
-    amigos.add(amigo);
-    return amigo;
-  }
+    public Amigo adicionar(Amigo amigo) {
+        if (amigo.getNome() == null || amigo.getNome().trim().isEmpty()) {
+            throw new IllegalArgumentException("O nome do amigo não pode estar vazio");
+        }
+        amigos.add(amigo);
+        return amigo;
+    }
 
-    public Amigo sortear(){
-      if (amigos.isEmpty()){
-        throw new IllegalStateException("Não ha amigos na lista para sortear");
-      }
-    
+    public Amigo sortear() {
+        if (amigos.isEmpty()) {
+            throw new IllegalStateException("Não há amigos na lista para sortear");
+        }
+        
+        Random random = new Random();
+        int indice = random.nextInt(amigos.size());
+        return amigos.get(indice);
+    }
 
-    Random random = new Random();
-    int indice = random.nexInt(amigos.size());
-    return amigos.get(indice);
-  }
-
-  public void limpar(){
-    amigos.clear();
-  }
-
+    public void limpar() {
+        amigos.clear();
+    }
 }
